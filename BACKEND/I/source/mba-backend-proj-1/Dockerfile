@@ -5,4 +5,4 @@ FROM python:3.12
 WORKDIR /app
 
 # Copie todos os seus arquivos Python para o contêiner
-COPY . src/app
+# COPY . src/app

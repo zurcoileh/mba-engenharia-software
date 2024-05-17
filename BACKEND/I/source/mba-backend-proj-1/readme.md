@@ -19,3 +19,7 @@ docker-compose run app python nome_do_arquivo.py
 ```
 
 > Substitua o `nome_do_arquivo.py` pelo nome do arquivo que deseja executar.
+
+
+docker container rm $(docker container ls -a -f name=app)
+docker-compose run --rm app bash

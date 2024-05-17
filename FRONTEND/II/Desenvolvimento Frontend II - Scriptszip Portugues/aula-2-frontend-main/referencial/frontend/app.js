@@ -4,11 +4,16 @@ let elementoParaInserirProdutos = document.getElementById('produtos__lista')
 
 buscarProdutosDaAPI()
 
-async function buscarProdutosDaAPI() {
-    let res = await fetch(endpoint)
-    produtos = await res.json()
-    console.log(produtos)
-    exibirProdutos(produtos)
+function buscarProdutosDaAPI() {
+    
+    fetch(endpoint).then((response) => {
+        return response.json();
+    })
+    .then(data => {
+        console.log(data)
+        produtos = data
+        exibirProdutos(produtos)
+    })
 }
 
 function exibirProdutos(produtos) {
