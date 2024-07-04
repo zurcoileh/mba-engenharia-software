@@ -1,0 +1,32 @@
+# anaconda
+
+docker pull continuumio/miniconda3
+docker run -t -i continuumio/miniconda3 /bin/bash
+
+# jupiter notebook
+
+docker run -i -t -p 8888:8888 continuumio/miniconda3 /bin/bash \
+-c "/opt/conda/bin/conda install jupyter -y --quiet && mkdir \
+/opt/notebooks && /opt/conda/bin/jupyter notebook \
+--notebook-dir=/opt/notebooks --ip='*' --port=8888 \
+--no-browser --allow-root"
+
+
+# spyder
+
+curl -s -O https://raw.githubusercontent.com/compdatasci/spyder-desktop/master/spyder_jupyter.py
+python spyder_jupyter.py -p
+
+
+
+
+# using docker file
+
+docker build -t my-anaconda-project .
+docker run -p 8888:8888 my-anaconda-project
+docker exec -it <container_id_or_name> /bin/bash
+
+jupyter notebook list
+from notebook.auth import passwd
+passwd()
+

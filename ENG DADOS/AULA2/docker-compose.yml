@@ -1,0 +1,40 @@
+## docker exec -it mysql-db-1  mysql -h db -u root -p
+version: '3'
+services:
+  db:
+    image: mysql
+    container_name: mysql-host
+    restart: always
+    environment:
+      MYSQL_PASSWORD: admin
+      MYSQL_DATABASE: meudb
+      MYSQL_ROOT_PASSWORD: admin
+  
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./mysql/data:/var/lib/mysql
+
+    networks:
+      - my_network
+  
+
+  anaconda:
+    build:
+      context: .
+      dockerfile: ./spyder/Dockerfile
+    volumes:
+       - ./spyder/notebook:/app
+    ports:
+      - "8888:8888"
+    tty: true
+    networks:
+      - my_network
+
+
+networks:
+  my_network:
+    driver: bridge
+
+
+  
