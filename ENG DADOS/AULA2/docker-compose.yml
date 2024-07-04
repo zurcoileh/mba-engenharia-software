@@ -22,9 +22,10 @@ services:
   anaconda:
     build:
       context: .
-      dockerfile: ./spyder/Dockerfile
+      dockerfile: ./jupyter/Dockerfile
+    container_name: jupyter-notebook
     volumes:
-       - ./spyder/notebook:/app
+       - ./jupyter/notebook:/app
     ports:
       - "8888:8888"
     tty: true
