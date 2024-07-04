@@ -1,4 +1,5 @@
 *.zip
 *.pdf
+*.ipynb_checkpoints
 
 /ENG DADOS/AULA2/mysql/data/
