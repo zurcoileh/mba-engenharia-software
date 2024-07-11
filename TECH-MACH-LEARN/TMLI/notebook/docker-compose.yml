@@ -1,0 +1,23 @@
+## docker exec -it mysql-db-1  mysql -h db -u root -p
+version: '3'
+services:
+
+  jupyter_notebook:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+       - ./regressao:/app
+    ports:
+      - "8888:8888"
+    tty: true
+    # networks:
+    #   - my_network
+
+
+# networks:
+#   my_network:
+#     driver: bridge
+
+
+  

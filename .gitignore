@@ -3,3 +3,4 @@
 *.ipynb_checkpoints
 
 /ENG DADOS/AULA2/mysql/data/
+*.spyproject/
